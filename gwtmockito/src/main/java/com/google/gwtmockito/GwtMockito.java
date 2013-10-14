@@ -223,8 +223,7 @@ public class GwtMockito {
       // Then check for the exact type provider.
       if (registeredProviders.containsKey(type)) {
           // Its safe - it's the same type provider
-          @SuppressWarnings({"rawtypes", "cast"})
-          return (T) entry.getValue().getFake(type);
+          return (T) registeredProviders.get(type).getFake(type);
       }
 
       // Next see if we have a provider for this type or a supertype.
